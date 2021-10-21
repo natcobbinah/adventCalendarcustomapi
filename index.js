@@ -56,6 +56,11 @@ app.use("/flutter", jsonParser, flutterUserRoute);
 app.use("/adventCalendar", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use("/test", testRoute);
 
+//base route test
+app.get("/*", (req, res) => {
+  res.status(200).send("Welcome from base");
+});
+
 //middlewares
 app.use(cors());
 
