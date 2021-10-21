@@ -6,8 +6,15 @@ const {
   ROUTE_addFlutterUser,
   ROUTE_getFlutterUser,
   ROUTE_loginFlutterUser,
+  ROUTE_remoteURI,
 } = require("../constants/routePaths");
 const { MongoClient } = require("mongodb");
+
+//initialize db connectivity options
+const options = {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+};
 
 /**
  * @swagger
@@ -37,12 +44,12 @@ router.get(ROUTE_getFlutterUser, async (req, res) => {
  * @swagger
  * /flutter/addFlutterUser:
  *  post:
- *    description: Add new Ticket into the system
+ *    description: Add new User into the system
  *    produces:
  *          application/json
  *    parameters:
  *        - in: body
- *          name: Add new Ticket into the system
+ *          name: Add new User into the system
  *          schema:
  *              type: object
  *              required:
@@ -59,13 +66,12 @@ router.get(ROUTE_getFlutterUser, async (req, res) => {
  */
 router.post(ROUTE_addFlutterUser, async (req, res) => {
   const newUserObj = {
-    email,
-    pinCode,
+    email: req.body.email,
+    pinCode: req.body.pinCode,
   };
   const client = new MongoClient(ROUTE_remoteURI, options);
   try {
     await client.connect();
-
     const database = client.db("adventCalendar");
     const collection = database.collection("users");
     const newUser = await collection.insertOne(newUserObj);

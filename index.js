@@ -10,21 +10,15 @@ const testRoute = require("./routes/testroute");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 
-//initialize db connectivity options
-const options = {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-};
-
 const swaggerOptions = {
   swaggerDefinition: {
     info: {
-      title: "Sports Management System",
-      description: "SPORTS-MGMT-SYSTEM API Information",
+      title: "Advent Calendar",
+      description: "ADVENT CALENDAR API Information",
       contact: {
         name: "Cobbinah Nathaniel",
       },
-      servers: ["https://localhost:3002"],
+      servers: ["https://localhost:5000"],
       components: {
         securitySchemes: {
           bearerAuth: {
@@ -56,12 +50,12 @@ app.use("/flutter", jsonParser, flutterUserRoute);
 app.use("/adventCalendar", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use("/test", testRoute);
 
-//base route test
-app.get("/*", (req, res) => {
-  res.status(200).send("Welcome from base");
-});
-
 //middlewares
 app.use(cors());
+
+app.get("/", function (req, res) {
+  //when we get an http get request to the root/homepage
+  res.send("Hello World");
+});
 
 app.listen(port, () => console.log(`App is live on port ${port}!`));
