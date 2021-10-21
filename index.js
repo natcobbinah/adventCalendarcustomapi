@@ -45,14 +45,16 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-//use middlewares
-let jsonParser = bodyParser.json();
+const port = process.env.PORT || 5000; // Heroku will need the PORT environment variable
 
 app.use(express.json());
-app.use(cors());
+
+//use middlewares
+let jsonParser = bodyParser.json();
 app.use("/flutter", jsonParser, flutterUserRoute);
 app.use("/adventCalendar", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
-app.listen(5000 || 5000, () => {
-  console.log("Server running");
-});
+//middlewares
+app.use(cors());
+
+app.listen(port, () => console.log(`App is live on port ${port}!`));
