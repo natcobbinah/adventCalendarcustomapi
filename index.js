@@ -5,6 +5,7 @@ let bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const flutterUserRoute = require("./routes/flutterUserRoute");
+const testRoute = require("./routes/testroute");
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
@@ -53,6 +54,7 @@ app.use(express.json());
 let jsonParser = bodyParser.json();
 app.use("/flutter", jsonParser, flutterUserRoute);
 app.use("/adventCalendar", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use("/test", testRoute);
 
 //middlewares
 app.use(cors());
