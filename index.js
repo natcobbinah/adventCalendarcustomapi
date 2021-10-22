@@ -5,7 +5,7 @@ let bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const flutterUserRoute = require("./routes/flutterUserRoute");
-const testRoute = require("./routes/testroute");
+const testRoute = require("./routes/testRoute");
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
