@@ -40,7 +40,7 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-const port = process.env.PORT || 5000; // Heroku will need the PORT environment variable
+const port = process.env.PORT || 3000; // Heroku will need the PORT environment variable
 
 app.use(express.json());
 
