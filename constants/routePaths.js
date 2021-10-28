@@ -5,9 +5,13 @@ const addFlutterUser = "/addFlutterUser";
 const getAllFlutterUsers = "/getFlutterUsers";
 const loginFlutterUser = "/login";
 
+//signup user
+const addsignupPaypal = "/signupPaypal";
+
 module.exports = {
   ROUTE_remoteURI: remoteURI,
   ROUTE_addFlutterUser: addFlutterUser,
   ROUTE_getFlutterUser: getAllFlutterUsers,
   ROUTE_loginFlutterUser: loginFlutterUser,
+  ROUTE_addsignupPaypal: addsignupPaypal,
 };

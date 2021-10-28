@@ -5,6 +5,7 @@ let bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const flutterUserRoute = require("./routes/flutterUserRoute");
+const paypalUserRoute = require("./routes/paypalUsersRoute");
 const testRoute = require("./routes/testRoute");
 
 const swaggerJsDoc = require("swagger-jsdoc");
@@ -47,6 +48,7 @@ app.use(express.json());
 //use middlewares
 let jsonParser = bodyParser.json();
 app.use("/flutter", jsonParser, flutterUserRoute);
+app.use("/signup", jsonParser, paypalUserRoute);
 app.use("/adventCalendar", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use("/test", testRoute);
 
