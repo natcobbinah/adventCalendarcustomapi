@@ -43,15 +43,15 @@ const options = {
  *                   lastName:
  *                      type: string
  *                   totalAmount:
- *                      type: double
+ *                      type: number
  *                   amountPerDoor:
- *                      type: double
+ *                      type: number
  *                   transactionId:
  *                      type: string
  *                   consent:
- *                      type: bool
+ *                      type: boolean
  *                   subscription:
- *                      type: bool
+ *                      type: boolean
  *    responses:
  *        200:
  *           description: 'user created with paypal  Successfully'
