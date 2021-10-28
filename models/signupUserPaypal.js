@@ -30,4 +30,4 @@ const signupPaypalSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("UserRegistrationPaypal", signupPaypalSchema);
+module.exports = mongoose.model("UserRegPaypal", signupPaypalSchema);
