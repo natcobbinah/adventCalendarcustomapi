@@ -14,10 +14,10 @@ const signupPaypalSchema = new Schema({
     type: String,
   },
   totalAmount: {
-    type: Double,
+    type: Number,
   },
   amountPerDoor: {
-    type: Double,
+    type: Number,
   },
   transactionId: {
     type: String,
