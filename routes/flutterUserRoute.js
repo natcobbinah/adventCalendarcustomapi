@@ -7,6 +7,7 @@ const {
   ROUTE_getFlutterUser,
   ROUTE_loginFlutterUser,
   ROUTE_remoteURI,
+  ROUTE_getAdventUserCalendar,
 } = require("../constants/routePaths");
 const { MongoClient } = require("mongodb");
 
@@ -124,6 +125,30 @@ router.post(ROUTE_loginFlutterUser, async (req, res) => {
       }
     );
     return res.json(foundUser);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    await client.close();
+  }
+});
+
+/**
+ * @swagger
+ * /flutter/getAdventUserCalendar:
+ *  get:
+ *    description: Retrieve all user adventCalendar in the system
+ *    responses:
+ *        200:
+ *           description: 'All adventUser Calendar retrieved successfully'
+ */
+router.get(ROUTE_getAdventUserCalendar, async (req, res) => {
+  const client = new MongoClient(ROUTE_remoteURI, options);
+  try {
+    await client.connect();
+    const database = client.db("adventCalendar");
+    const collection = database.collection("adventUserCalendar");
+    const userAdventCalendar = await collection.find({}).toArray();
+    res.json(userAdventCalendar);
   } catch (err) {
     console.log(err);
   } finally {

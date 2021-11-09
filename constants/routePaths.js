@@ -4,6 +4,7 @@ const remoteURI =
 const addFlutterUser = "/addFlutterUser";
 const getAllFlutterUsers = "/getFlutterUsers";
 const loginFlutterUser = "/login";
+const getadventUserCalendar = "/getAdventUserCalendar"
 
 //signup user
 const addsignupPaypal = "/signupPaypal";
@@ -14,4 +15,5 @@ module.exports = {
   ROUTE_getFlutterUser: getAllFlutterUsers,
   ROUTE_loginFlutterUser: loginFlutterUser,
   ROUTE_addsignupPaypal: addsignupPaypal,
+  ROUTE_getAdventUserCalendar: getadventUserCalendar,
 };
