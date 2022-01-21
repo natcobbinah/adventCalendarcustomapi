@@ -1,5 +1,5 @@
 const remoteURI =
-  "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.1ljd7.mongodb.net/sms?authSource=admin";
+  "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.xxxxx.mongodb.net/sms?authSource=admin";
 //flutter app test
 const addFlutterUser = "/addFlutterUser";
 const getAllFlutterUsers = "/getFlutterUsers";
